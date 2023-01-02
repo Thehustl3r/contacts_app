@@ -9,11 +9,11 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:url_launcher/url_launcher.dart' as url_launcher;
 
 class ContactTile extends StatelessWidget {
-  ContactTile({
+  const ContactTile({
     Key? key,
-    required this.ContactIndex,
+    required this.contactIndex,
   }) : super(key: key);
-  final int ContactIndex;
+  final int contactIndex;
 
   @override
   Widget build(BuildContext context) {
@@ -21,13 +21,13 @@ class ContactTile extends StatelessWidget {
     // (when you only make changes to the model, like this contact card)
     // call scopedModell.of<T>()function
     final model = ScopedModel.of<ContactsModel>(context);
-    final displayedContact = model.contacts[ContactIndex];
+    final displayedContact = model.contacts[contactIndex];
     return Slidable(
       // delegate is for choosing the animation while sliding
       key: const ValueKey(1),
 
       endActionPane: ActionPane(
-        motion: ScrollMotion(),
+        motion: const ScrollMotion(),
         children: [
           SlidableAction(
             onPressed: ((context) {
@@ -75,7 +75,7 @@ class ContactTile extends StatelessWidget {
     if (await url_launcher.canLaunchUrl(url)) {
       await url_launcher.launchUrl(url);
     } else {
-      final snackbar = SnackBar(
+      const snackbar = SnackBar(
         content: Text("cannnot make a call"),
       );
       // showing an error message
@@ -94,7 +94,7 @@ class ContactTile extends StatelessWidget {
     if (await url_launcher.canLaunchUrl(url)) {
       await url_launcher.launchUrl(url);
     } else {
-      final snackbar = SnackBar(
+      const snackbar = SnackBar(
         content: Text("cannnot write an email"),
       );
       // showing an error message

@@ -3,10 +3,10 @@ import 'package:contacts_app/data/db/database.dart';
 import 'package:sembast/sembast.dart';
 
 class ContactDao {
-  static const String contact_store_name = 'contacts';
+  static const String contactStoreName = 'contacts';
   // A store with int keys and Map<String, Dynamics> values.
   // This is what we need since we convert contact object to map.
-  final _contactStore = intMapStoreFactory.store(contact_store_name);
+  final _contactStore = intMapStoreFactory.store(contactStoreName);
   Future get _db async => await AppDatabase.instance.database;
   Future insert(Contact contact) async {
     await _contactStore.add(

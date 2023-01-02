@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 class ContactEditPage extends StatelessWidget {
   final Contact editedContact;
 
-  ContactEditPage({
+  const ContactEditPage({
     Key? key,
     required this.editedContact,
   }) : super(key: key);
@@ -13,7 +13,7 @@ class ContactEditPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Edit'),
+        title: const Text('Edit'),
       ),
       body: ContactForm(
         editedContact: editedContact,

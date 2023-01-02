@@ -1,5 +1,4 @@
 import 'dart:io' as a;
-import 'dart:convert';
 
 import 'package:contacts_app/data/contact.dart';
 import 'package:contacts_app/ui/contacts_list/model/contacts_model.dart';
@@ -10,10 +9,11 @@ import 'package:scoped_model/scoped_model.dart';
 class ContactForm extends StatefulWidget {
   final Contact? editedContact;
 
-  ContactForm({
+  const ContactForm({
     Key? key,
     this.editedContact,
   }) : super(key: key);
+  @override
   _ContactFormState createState() => _ContactFormState();
 }
 
@@ -42,14 +42,14 @@ class _ContactFormState extends State<ContactForm> {
     return Form(
         key: _formkey,
         child: ListView(
-          padding: EdgeInsets.all(8),
+          padding: const EdgeInsets.all(8),
           children: <Widget>[
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             _buildContactPicture(),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             TextFormField(
               initialValue: widget.editedContact?.name,
-              onSaved: (Value) => _name = Value,
+              onSaved: (value) => _name = value,
               validator: _validateName,
               decoration: InputDecoration(
                   labelText: 'name',
@@ -57,10 +57,10 @@ class _ContactFormState extends State<ContactForm> {
                     borderRadius: BorderRadius.circular(5),
                   )),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             TextFormField(
               initialValue: widget.editedContact?.email,
-              onSaved: (Value) => _email = Value,
+              onSaved: (value) => _email = value,
               validator: _validateEmail,
               decoration: InputDecoration(
                   labelText: 'email',
@@ -68,10 +68,10 @@ class _ContactFormState extends State<ContactForm> {
                     borderRadius: BorderRadius.circular(5),
                   )),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             TextFormField(
               initialValue: widget.editedContact?.phoneNumber,
-              onSaved: (Value) => _phoneNumber = Value,
+              onSaved: (value) => _phoneNumber = value,
               validator: _validatePhoneNumber,
               decoration: InputDecoration(
                   labelText: 'Phone Number',
@@ -79,12 +79,12 @@ class _ContactFormState extends State<ContactForm> {
                     borderRadius: BorderRadius.circular(5),
                   )),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             RaisedButton(
               onPressed: _onSaveContactButtonPressed,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
+                children: const <Widget>[
                   Text('SAVE CONTACT'),
                   SizedBox(width: 5),
                   Icon(Icons.person, size: 18),

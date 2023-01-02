@@ -8,9 +8,9 @@ class ContactCreatePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Create'),
+        title: const Text('Create'),
       ),
-      body: ContactForm(),
+      body: const ContactForm(),
     );
   }
 }
