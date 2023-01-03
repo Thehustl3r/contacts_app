@@ -14,10 +14,10 @@ class ContactForm extends StatefulWidget {
     this.editedContact,
   }) : super(key: key);
   @override
-  _ContactFormState createState() => _ContactFormState();
+  ContactFormState createState() => ContactFormState();
 }
 
-class _ContactFormState extends State<ContactForm> {
+class ContactFormState extends State<ContactForm> {
   // keys allow us to access widgets from  a different place in the code
   // They are something like View IDs if you are familiar with android development
   final _formkey = GlobalKey<FormState>();
@@ -32,7 +32,6 @@ class _ContactFormState extends State<ContactForm> {
   bool get isSelectedCustomImage => _contactImageFile != null;
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     _contactImageFile = widget.editedContact?.imageFile;
   }
@@ -80,8 +79,12 @@ class _ContactFormState extends State<ContactForm> {
                   )),
             ),
             const SizedBox(height: 10),
-            RaisedButton(
+            ElevatedButton(
               onPressed: _onSaveContactButtonPressed,
+              style: ElevatedButton.styleFrom(
+                primary: Theme.of(context).primaryColor, //background color
+                onPrimary: Colors.white,
+              ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: const <Widget>[
@@ -90,8 +93,6 @@ class _ContactFormState extends State<ContactForm> {
                   Icon(Icons.person, size: 18),
                 ],
               ),
-              color: Theme.of(context).primaryColor,
-              textColor: Colors.white,
             ),
           ],
         ));
@@ -112,7 +113,7 @@ class _ContactFormState extends State<ContactForm> {
   }
 
   void _onContactPictureTapped() async {
-    final imageFile = await ImagePicker().getImage(source: ImageSource.gallery);
+    final imageFile = await ImagePicker().pickImage(source: ImageSource.gallery);
     setState(() {
       _contactImageFile = a.File(imageFile!.path);
     });

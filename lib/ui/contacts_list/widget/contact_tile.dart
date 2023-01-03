@@ -79,7 +79,7 @@ class ContactTile extends StatelessWidget {
         content: Text("cannnot make a call"),
       );
       // showing an error message
-      Scaffold.of(context).showSnackBar(snackbar);
+      ScaffoldMessenger.of(context).showSnackBar(snackbar);
     }
   }
 
@@ -98,7 +98,7 @@ class ContactTile extends StatelessWidget {
         content: Text("cannnot write an email"),
       );
       // showing an error message
-      Scaffold.of(context).showSnackBar(snackbar);
+      ScaffoldMessenger.of(context).showSnackBar(snackbar);
     }
   }
 

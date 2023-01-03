@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:path/path.dart';
+import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart';
 import 'package:sembast/sembast.dart';
 import 'package:sembast/sembast_io.dart';
@@ -39,8 +39,8 @@ class AppDatabase {
     //  Get a platform-specific directory where persistent app data can be stored
     final appDocumentDir = await getApplicationDocumentsDirectory();
     // path with the form: /platform-specific-directory/contacts.db
-    final dbPath = join(appDocumentDir.path, 'contacts.db');
+    final dbPath = p.join(appDocumentDir.path, 'contacts.db');
     final database = await databaseFactoryIo.openDatabase(dbPath);
-    _dbOpenCompleter?.complete(database);
+    _dbOpenCompleter!.complete(database);
   }
 }

@@ -18,7 +18,7 @@ class ContactsModel extends Model {
   //from different class
   List<Contact> get contacts => _contacts;
   Future loadcontacts() async {
-    _isLoading = false;
+    _isLoading = true;
     notifyListeners();
 
     // notify listeners as soon as are loaded
