@@ -1,4 +1,5 @@
 import 'package:contacts_app/data/db/contact_dao.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:scoped_model/scoped_model.dart';
 
 import 'package:contacts_app/data/contact.dart';
@@ -9,7 +10,7 @@ class ContactsModel extends Model {
   final ContactDao _contactDao = ContactDao();
 
   // Unederscore act like private modifier
-  List<Contact> _contacts = [];
+  late List<Contact> _contacts ;
 
   bool _isLoading = true;
   bool get isLoading => _isLoading;
@@ -19,12 +20,18 @@ class ContactsModel extends Model {
   List<Contact> get contacts => _contacts;
   Future loadcontacts() async {
     _isLoading = true;
+    
     notifyListeners();
+    debugPrint('debug: contact is not yet loaded');
 
     // notify listeners as soon as are loaded
     _contacts = await _contactDao.getAllInsortedOrder();
+    debugPrint('debug: contact is assigned');
     _isLoading = false;
+    
     notifyListeners();
+    debugPrint('debug: contact is  loaded');
+    
   }
 
   Future addContact(Contact contact) async {

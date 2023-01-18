@@ -4,7 +4,7 @@ import 'dart:io';
 class Contact {
   // contact id (keys)
   int? id;
-  String name;
+  String name ;
   String email;
   // String for phone number
   String phoneNumber;

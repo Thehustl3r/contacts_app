@@ -82,8 +82,8 @@ class ContactFormState extends State<ContactForm> {
             ElevatedButton(
               onPressed: _onSaveContactButtonPressed,
               style: ElevatedButton.styleFrom(
-                primary: Theme.of(context).primaryColor, //background color
-                onPrimary: Colors.white,
+                backgroundColor: Theme.of(context).primaryColor, //background color
+                foregroundColor: Colors.white,
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,

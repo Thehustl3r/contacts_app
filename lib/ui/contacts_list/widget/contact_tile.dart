@@ -68,12 +68,9 @@ class ContactTile extends StatelessWidget {
     BuildContext context,
     String number,
   ) async {
-    final Uri url = Uri(
-      scheme: 'tel:',
-      path: number,
-    );
-    if (await url_launcher.canLaunchUrl(url)) {
-      await url_launcher.launchUrl(url);
+    final url = 'tel:$number';
+    if (await url_launcher.canLaunchUrl(url as Uri)) {
+      await url_launcher.launchUrl(url as Uri);
     } else {
       const snackbar = SnackBar(
         content: Text("cannnot make a call"),
